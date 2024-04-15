@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    glClearColor(0.6f, 0.62f, 0.65f, 1);
+    glClearColor(0.0f, 0.0f, 0.0f, 1);
     Kubic_Rubica a = Kubic_Rubica();
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -71,6 +71,8 @@ int main(int argc, char** argv) {
 
     float speed = 5;
     int i = 99;
+
+    bool flag_click = false;
     glEnable(GL_DEPTH_TEST);
     while (!Window::isShouldClose()) {
         int small_command = -1;
@@ -94,7 +96,13 @@ int main(int argc, char** argv) {
             Events::toogleCursor();
         }
         if (Events::jclicked(GLFW_MOUSE_BUTTON_1)){
-            glClearColor(0.8f,0.4f,0.2f,1);
+            if (!flag_click) {
+                glClearColor(1.0f,1.0f,1.0f,1);
+                flag_click = true;
+            } else {
+                glClearColor(0.0f,0.0f,0.0f,1);
+                flag_click = false;
+            }
         }
         if (Events::pressed(GLFW_KEY_W)){
             camera->position += camera->front * delta * speed;

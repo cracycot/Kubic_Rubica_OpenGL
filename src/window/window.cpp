@@ -31,7 +31,7 @@ int Window::initialize(int width, int height, const char* title){
         return -1;
     }
     glfwMakeContextCurrent(window);
-
+    glfwSetWindowTitle(window, "Kubic_Rubica_Kirill_Lesniak");
     glewExperimental = GL_TRUE;
     if (glewInit() != GLEW_OK){
         std::cerr << "Failed to initialize GLEW" << std::endl;

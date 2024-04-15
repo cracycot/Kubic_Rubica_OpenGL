@@ -224,7 +224,7 @@ public:
             for (int y = -1; y < 2; y++) {
                 std::vector<Kubic> a2;
                 for (int z = -1; z < 2; z++) {
-                    a2.emplace_back(glm::vec3(x , y , z ));
+                    a2.emplace_back(glm::vec3(x , y  , z  ));
                 }
                 a1.push_back(a2);
             }
